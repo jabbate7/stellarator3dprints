@@ -1,14 +1,12 @@
-from scipy.integrate import odeint
-from scipy.special import iv, modstruve
 import numpy as np
 import matplotlib.pyplot as plt
 import re
 
-#for vmec file examples see https://github.com/PlasmaControl/DESC/blob/master/examples/VMEC/
+#for vmec file examples see https://github.com/PlasmaControl/DESC/tree/master/tests/inputs
 # e.g. input.NCSX for the Princeton NCSX up-down symmetric stellarator
 #for vmec file explanation see https://princetonuniversity.github.io/STELLOPT/VMEC
-vmec_file='input.NCSX'
-output_file='ncsx.scad'
+vmec_file='stellopt_test.vmec'
+output_file='stellopt_test.scad'
 nPointsRadial=100
 nPointsToroidal=120
 
@@ -66,6 +64,19 @@ for j in range(nPointsToroidal):
         faces.append([upperLeft, upperRight, lowerRight])
         faces.append([upperLeft, lowerRight, lowerLeft])
 
+with open(output_file,'w') as f:
+    # Stellarator
+    f.write("Points="+str(points)+";")
+    f.write("\n\n")
+    f.write("Faces="+str(faces)+";")
+    f.write("\n\n")
+    f.write("polyhedron( Points,Faces );")
+    f.write("\n\n")
+
+import pdb; pdb.set_trace()
+
+print(f'Wrote to {output_file}')
+
 ##### For adding circular coils
 # cylindrical_coil_string="""
 # rotate([90,0,0])
@@ -102,14 +113,7 @@ for j in range(nPointsToroidal):
 #                        deePointsInner.shape[0])
 # deePaths=np.array([deePathInner,deePathOuter])
 
-# with open(output_file,'w') as f:
-#     # Stellarator
-#     f.write("Points="+str(points)+";")
-#     f.write("\n\n")
-#     f.write("Faces="+str(faces)+";")
-#     f.write("\n\n")
-#     f.write("polyhedron( Points,Faces );")
-#     f.write("\n\n")
+# with open(output_file,'a') as f:
 #     # Dee
 #     #f.write("translate([0,0.25,0])\n")
 #     #f.write("rotate([0,-90,0])\n")

@@ -1,0 +1,28 @@
+&INDATA
+LFREEB = F
+MGRID_FILE = "none"
+DELT = 0.9
+NFP = 7
+NCURR = 0
+MPOL = 9
+NTOR = 6
+NZETA = 18
+NITER = 10000
+NSTEP = 200
+NVACSKIP = 6
+GAMMA = 0.000000E+00
+PHIEDGE = 1.13E-01
+CURTOR = 0.0
+NS_ARRAY =     9      49
+FTOL_ARRAY = 1.00e-6   1.e-11
+AM =   1.e4    -1.e4    9*0.
+AI =    6.90    0.0      0.0    3.90   0.0    0.0    6.90    0.0    0.0    6.90
+0.0
+AC =   11*0.
+RAXIS =   2.88    0.04
+ZAXIS =   0.00   -0.04
+RBC(0,0) =   2.90     ZBS(0,0) =   0.00
+RBC(0,1) =   1.00     ZBS(0,1) =   1.00
+RBC(1,1) =  -0.21     ZBS(1,1) =   0.21
+RBC(1,4) =  -0.01     ZBS(1,4) =   0.01
+RBC(1,6) =  -0.01     ZBS(1,6) =  -0.01
